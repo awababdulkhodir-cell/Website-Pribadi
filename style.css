@@ -564,3 +564,87 @@ nav ul li a.active::after {
 .kontak-form button:hover {
     box-shadow: 0 0 20px aqua; /* Perjelas hover */
 }
+/* ============================= */
+/* ===== KODE RESPONSif (MOBILE) ==== */
+/* ============================= */
+
+/* Aturan ini hanya berlaku jika lebar layar 768px atau kurang */
+@media (max-width: 768px) {
+
+    /* 1. Navigasi: Menumpuk logo dan menu */
+    nav {
+        flex-direction: column; /* Susun ke bawah */
+        align-items: flex-start; /* Logo rata kiri */
+        padding: 20px 5%;
+    }
+
+    nav ul {
+        flex-direction: column; /* Susun link ke bawah */
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 15px;
+        width: 100%; 
+        text-align: center; /* Tengahkan teks link */
+    }
+    
+    /* 2. Padding & Ukuran Font Umum */
+    .hero {
+        padding: 0 5%;
+        /* Pastikan tinggi hero tetap 100vh atau sesuaikan */
+        min-height: 100vh; 
+    }
+    
+    /* Kurangi padding di semua section */
+    .tentang-saya, .service, .project, .sertifikat, .kontak {
+        padding: 60px 5%; 
+    }
+
+    .hero-text h1 {
+        font-size: 40px; /* Kecilkan dari 60px */
+    }
+    .judul-section {
+        font-size: 36px; /* Kecilkan dari 50px */
+    }
+
+    /* 3. Layout Kolom (Hero, Tentang, Kontak) */
+    /* Ini akan menumpuk gambar & teks secara vertikal */
+    .hero-container,
+    .tentang-container,
+    .kontak-container {
+        flex-direction: column; /* Susun ke bawah */
+        gap: 40px;
+    }
+    
+    /* 4. Perbaikan Gambar */
+    .hero-image img {
+        width: 300px;  /* Kecilkan dari 500px */
+        height: 300px; /* Kecilkan dari 500px */
+    }
+    .tentang-image {
+         margin-left: 0; /* Hapus margin kiri */
+    }
+    .tentang-image img {
+        width: 90%; /* Buat gambar responsif */
+        height: 400px; /* Sesuaikan tinggi agar object-fit tetap bekerja */
+    }
+
+    /* 5. Layout Grid (Service, Project, Sertifikat) */
+    /* Ini akan mengubah 3 atau 2 kolom menjadi 1 kolom */
+    .service-container,
+    .project-container,
+    .sertifikat-container {
+        grid-template-columns: 1fr; /* Selalu 1 kolom */
+    }
+
+    /* 6. Perbaikan Tombol Kontak */
+    .kontak-form button {
+        /* Pastikan tombol tidak terlalu lebar */
+        align-self: center; 
+        width: 100%;
+        text-align: center;
+    }
+}
