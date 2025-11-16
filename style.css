@@ -5,25 +5,39 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
 }
 header {
-    background-color: black;
-    box-shadow: 0 2px 4px rgba(red, green, blue, alpha);
-    padding: 0 50px;
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 5px #00FFFF,
+                0 0 10px #00FFFF,
+                0 0 15px #00FFFF;
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 25px 10%;
+    left: 0 ;
+    width: 100%;
 }
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: aliceblue;
+    left: 20%;
 }
 .logo-dev {
     color: aqua;
@@ -33,7 +47,7 @@ nav ul {
     list-style-type: none;
 }
 nav ul li {
-    margin-left: 30px;
+    margin-left: 50px;
     position: relative;
 }
 nav ul li a {
@@ -53,9 +67,500 @@ nav ul li a::after {
     background-color: aqua;
     transition: width 0.3s ease;
 }
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
     color: aqua;
 }
-nav ul li a:hover::after{
+nav ul li a:hover::after,
+nav ul li a.active::after {
     width: 100%;
+}
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10% ;
+}
+.hero-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transform: translateY(-45px);
+}
+.hero-text {
+    flex: 1;
+    animation: slideFromBottom 2s ease-out forwards;
+}
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideFromRight 2s ease-out forwards;
+}
+.hero-text h1 {
+    font-size: 60px;
+    margin: 10px 0;
+}
+.hero-text h1 span {
+    color: aqua;
+}
+.nama-saya {
+    color: aqua;
+    font-weight: 600;
+}
+.hero-text .deskripsi {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background-color: #fff;
+    color: black;
+}
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+}
+.btn-primary:hover {
+    box-shadow: 0 0 10px white;
+}
+.btn-secondary:hover {
+    background-color: #fff;
+    color: black;
+}
+.hero-image img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid aqua;
+   box-shadow: 0 0 5px #00FFFF,
+                0 0 15px #00FFFF,
+                0 0 25px #00FFFF;
+    animation: floating 3s ease-in-out
+    infinite alternate;
+    transition: all 0.3s ease;
+}
+.hero-image img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px aqua,
+                0 0 40px aqua,
+                0 0 60px aqua;
+                animation-play-state: paused;
+}
+.hero-button {
+    margin-top: 30px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background-color: aqua;
+    color: black;
+}
+.btn-secondary {
+    background-color: aqua;
+    color: black;
+}
+.btn-primary:hover {
+    box-shadow: 0 0 15px aqua;
+    background-color: #111;
+    color: aqua;
+}
+.btn-secondary:hover {
+    box-shadow: 0 0 15px aqua;
+    background-color: #111;
+    color: aqua;
+}
+.social-icons {
+    margin-top: 40px;
+}
+.social-icons a {
+    font-size: 24px;
+    color: white;
+    margin-right: 20px;
+    margin-left: 0px;
+    height: 50px;
+    width: 50px;
+    transition: color 0.3s ease;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+.social-icons a:hover {
+    box-shadow: 0 0 15px aqua;
+    background-color: #111;
+    color: aqua;
+    transform: translateY(-5px);
+}
+.typed-cursor {
+    color: aqua;
+    font-size: 50px;
+}
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+@keyframes zoomInLoad {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes slideFromBottom {
+    from { 
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.tentang-saya {
+    min-height: 90vh;
+    padding: 80px 10%;
+}
+.judul-section {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.tentang-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    animation: slideFromBottom 1.5s ease-out forwards;
+}
+.tentang-image {
+    flex: 1;
+    margin-left: 10%;
+}
+.tentang-image img{
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 3px solid aqua;
+    box-shadow: 0 0 5px #00FFFF,
+                0 0 15px #00FFFF,
+                0 0 25px #00FFFF;
+    animation: floating 3s ease-in-out
+    infinite alternate;
+    transition: all 0.3s ease;
+}
+.tentang-image img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px aqua,
+                0 0 40px aqua,
+                0 0 60px aqua;
+                animation-play-state: paused;
+}
+.tentang-text h2 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+}
+.tentang-text h3 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.tentang-text .deskripsi {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+.tentang-text .motto {
+    font-style: italic;
+    color: aqua;
+    border-left: 3px solid aqua;
+    padding-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.tentang-button {
+    display: flex;
+    gap: 15px;
+}
+.service {
+    padding: 80px 10%;
+    background-color: black;
+}
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+.service-card {
+    background-color: black;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: aqua;
+    box-shadow: 0 0 25px aqua;
+}
+
+
+.service-card i {
+    font-size: 60px;
+    color: aqua;
+    margin-bottom: 20px;
+}
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.service-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #ccc;
+}
+.project {
+    padding: 80px 10%;
+}
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+.project-card {
+    background-color: black;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+     box-shadow: 0 0 15px rgba(0, 255, 255, 0.2)
+}
+.project-card:hover {
+   transform: translateY(-10px);
+    border-color: aqua;
+    box-shadow: 0 0 25px aqua;
+}
+
+
+.project-image-box {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid black;
+    transition: all 0.3s ease;
+}
+.project-image-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.project-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.project-card p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+/* ============================= */
+/* STYLE SECTION SERTIFIKAT  */
+/* ============================= */
+
+.sertifikat {
+    padding: 80px 10%;
+    /* Ganti warna bg lagi agar tidak monoton */
+    background-color: #050505; 
+}
+
+.sertifikat-container {
+    display: grid;
+    /* Membuat 3 kolom */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Jarak antar kartu */
+}
+
+.sertifikat-card {
+    background-color: black;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); /* Bayangan aqua tipis */
+    transition: transform 0.3s ease;
+}
+
+.sertifikat-card:hover {
+    transform: translateY(-10px);
+    border-color: aqua;
+    box-shadow: 0 0 25px aqua;
+}
+.sertifikat-image-box {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden; /* Untuk memotong gambar di dalamnya */
+    transition: all 0.3s ease;
+}
+
+.sertifikat-image-box img {
+    width: 100%;
+    height: 200px; /* Samakan tinggi semua gambar */
+    object-fit: cover;
+    display: block;
+}
+
+.sertifikat-card h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* --- EFEK HOVER (Mirip Proyek) --- */
+
+/* Saat card di-hover, image box menyala */
+
+/* ============================= */
+/* STYLE SECTION KONTAK      */
+/* ============================= */
+
+.kontak {
+    padding: 80px 10%;
+}
+
+.kontak-container {
+    display: flex;
+    gap: 50px; /* Jarak antara kolom info and form */
+}
+
+/* --- Kolom Kiri: Info --- */
+.kontak-info {
+    flex: 1; /* Mengambil 1 bagian (sekitar 40%) */
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.info-item i {
+    font-size: 30px;
+    color: aqua;
+    background-color: #111;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover i {
+    background-color: aqua;
+    color: black;
+    box-shadow: 0 0 25px aqua;
+}
+
+.info-item h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: #ccc;
+}
+
+/* --- Kolom Kanan: Form --- */
+.kontak-form {
+    flex: 1.5; /* Mengambil 1.5 bagian (sekitar 60%) */
+}
+
+.kontak-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #111;
+    border: 2px solid #555; /* Border abu-abu tipis */
+    border-radius: 8px;
+    color: white;
+    font-family: 'Poppins', sans-serif; /* Pastikan font-nya sama */
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-box textarea {
+    resize: none; /* Mencegah user mengubah ukuran textarea */
+}
+
+/* Efek 'Focus' (saat diklik) */
+.input-box input:focus,
+.input-box textarea:focus {
+    outline: none; /* Hapus outline default browser */
+    border-color: aqua;
+    box-shadow: 0 0 15px aqua;
+}
+
+/* Style Tombol */
+.kontak-form button {
+    align-self: flex-start; /* Membuat tombol rata kiri */
+    cursor: pointer;
+    /* Kita pakai ulang .btn dan .btn-primary */
+}
+
+.kontak-form button:hover {
+    box-shadow: 0 0 20px aqua; /* Perjelas hover */
 }
