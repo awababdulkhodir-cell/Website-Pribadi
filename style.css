@@ -569,82 +569,103 @@ nav ul li a.active::after {
 /* ============================= */
 
 /* Aturan ini hanya berlaku jika lebar layar 768px atau kurang */
+/* ============================= */
+/* ===== KODE RESPONSif (MOBILE) ==== */
+/* ============================= */
+
+/* Aturan ini hanya berlaku jika lebar layar 768px atau kurang */
 @media (max-width: 768px) {
 
-    /* 1. Navigasi: Menumpuk logo dan menu */
+    /* 1. Navigasi: Logo & Menu ke tengah */
     nav {
-        flex-direction: column; /* Susun ke bawah */
-        align-items: flex-start; /* Logo rata kiri */
+        flex-direction: column;
+        align-items: center; /* FIX: Buat logo & menu ke tengah */
         padding: 20px 5%;
     }
-
     nav ul {
-        flex-direction: column; /* Susun link ke bawah */
+        flex-direction: column;
         width: 100%;
         margin-top: 20px;
     }
-
     nav ul li {
         margin-left: 0;
         margin-bottom: 15px;
         width: 100%; 
-        text-align: center; /* Tengahkan teks link */
+        text-align: center; /* Pastikan teks link ke tengah */
     }
     
     /* 2. Padding & Ukuran Font Umum */
     .hero {
         padding: 0 5%;
-        /* Pastikan tinggi hero tetap 100vh atau sesuaikan */
         min-height: 100vh; 
     }
-    
-    /* Kurangi padding di semua section */
     .tentang-saya, .service, .project, .sertifikat, .kontak {
         padding: 60px 5%; 
     }
-
-    .hero-text h1 {
-        font-size: 40px; /* Kecilkan dari 60px */
-    }
     .judul-section {
-        font-size: 36px; /* Kecilkan dari 50px */
+        font-size: 36px;
     }
 
-    /* 3. Layout Kolom (Hero, Tentang, Kontak) */
-    /* Ini akan menumpuk gambar & teks secara vertikal */
-    .hero-container,
-    .tentang-container,
-    .kontak-container {
-        flex-direction: column; /* Susun ke bawah */
+    /* 3. Perbaikan Hero (Halaman 1) */
+    .hero-text {
+        text-align: center; /* FIX #4: Menengahkan deskripsi & social icons */
+    }
+    .hero-text h1 {
+        font-size: 32px; /* FIX #2: Kecilkan font "I'm a..." */
+    }
+    .hero-button {
+        display: flex; /* FIX #3: Buat tombol sejajar */
+        justify-content: center; /* Posisikan di tengah */
+        gap: 15px; /* Jarak antar tombol */
+    }
+
+    /* 4. Layout Kolom (Hero, Tentang, Kontak) */
+    .hero-container, .kontak-container {
+        flex-direction: column;
         gap: 40px;
     }
     
-    /* 4. Perbaikan Gambar */
-    .hero-image img {
-        width: 300px;  /* Kecilkan dari 500px */
-        height: 300px; /* Kecilkan dari 500px */
+    /* 5. Perbaikan Tentang Saya (Halaman 2) */
+    .tentang-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center; /* FIX #5a: Geser ke tengah */
     }
-    .tentang-image {
-         margin-left: 0; /* Hapus margin kiri */
-    }
-    .tentang-image img {
-        width: 90%; /* Buat gambar responsif */
-        height: 400px; /* Sesuaikan tinggi agar object-fit tetap bekerja */
+    .tentang-text h3 {
+        font-size: 24px; /* FIX #5b: Kecilkan font "Hello, I'm..." */
+        text-align: center; /* Bonus: Tengahkan H3-nya */
     }
 
-    /* 5. Layout Grid (Service, Project, Sertifikat) */
-    /* Ini akan mengubah 3 atau 2 kolom menjadi 1 kolom */
+    /* 6. Perbaikan Gambar */
+    .hero-image img {
+        width: 300px;
+        height: 300px;
+    }
+    .tentang-image {
+         margin-left: 0;
+    }
+    .tentang-image img {
+        width: 90%; /* Lebar 90% dari layar */
+        height: 400px;
+    }
+
+    /* 7. Layout Grid (Service, Project, Sertifikat) */
     .service-container,
     .project-container,
     .sertifikat-container {
         grid-template-columns: 1fr; /* Selalu 1 kolom */
     }
 
-    /* 6. Perbaikan Tombol Kontak */
+    /* 8. Perbaikan Tombol Kontak */
     .kontak-form button {
-        /* Pastikan tombol tidak terlalu lebar */
         align-self: center; 
         width: 100%;
         text-align: center;
+    }
+
+    /* 9. FIX #6: Kecilkan font & padding SEMUA tombol */
+    .btn {
+        font-size: 14px;
+        padding: 10px 20px;
     }
 }
