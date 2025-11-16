@@ -568,10 +568,6 @@ nav ul li a.active::after {
 /* ===== KODE RESPONSif (MOBILE) ==== */
 /* ============================= */
 
-/* ============================= */
-/* ===== KODE RESPONSif (MOBILE) ==== */
-/* ============================= */
-
 /* Sembunyikan ikon hamburger di DESKTOP */
 #menu-icon {
     display: none;
@@ -580,15 +576,14 @@ nav ul li a.active::after {
 /* Aturan ini hanya berlaku jika lebar layar 768px atau kurang */
 @media (max-width: 768px) {
 
-    /* --- 1. Perbaikan Header (Hamburger Menu) --- */
+    /* --- 1. Perbaikan Header (Ukuran & Animasi) --- */
     nav {
-        flex-direction: row; /* KEMBALIKAN: Buat sejajar */
-        justify-content: space-between; /* Logo di kiri, Ikon di kanan */
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        padding: 20px 5%; /* Padding seperti semula */
+        padding: 20px 5%;
     }
 
-    /* Tampilkan ikon hamburger di MOBILE */
     #menu-icon {
         display: block;
         font-size: 28px;
@@ -596,31 +591,35 @@ nav ul li a.active::after {
         cursor: pointer;
         transition: transform 0.3s ease;
     }
-    
-    /* (Anda bisa tambahkan .fa-times untuk ikon 'X' jika mau) */
 
-    /* Sembunyikan menu (ul) secara default di MOBILE */
+    /* Ini adalah menu dropdown-nya */
     nav ul {
-        display: none; /* Sembunyikan */
+        display: flex; /* Biarkan display flex */
         flex-direction: column;
-        position: absolute; /* Buat menu "melayang" */
-        top: 84px; /* Tepat di bawah header (sesuaikan jika perlu) */
+        position: absolute;
+        top: 84px; /* Ganti ini jika tinggi header Anda beda */
         left: 0;
         width: 100%;
-        background-color: #080808; /* Kasih background solid */
+        background-color: #080808;
         border-bottom: 2px solid aqua;
-        padding: 20px 0;
-        text-align: center;
+        
+        /* FIX 3 & 4: Animasi Dropdown */
+        padding: 0; /* Hapus padding saat tertutup */
         margin-top: 0;
+        text-align: center;
+        max-height: 0; /* Mulai dengan tinggi 0 (tertutup) */
+        overflow: hidden; /* Sembunyikan konten */
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Tambahkan animasi */
     }
-    
-    /* Tampilkan menu jika di-klik (JS akan menambah class 'active') */
+
+    /* Saat menu di-klik (JS menambah class 'active') */
     nav ul.active {
-        display: flex; /* Tampilkan kembali */
+        max-height: 500px; /* Animasikan ke tinggi ini */
+        padding: 10px 0; /* FIX 3: Kurangi padding agar tidak terlalu besar */
     }
 
     nav ul li {
-        margin: 10px 0; /* Atur ulang jarak link */
+        margin: 8px 0; /* FIX 3: Kurangi margin */
     }
 
     /* --- 2. Perbaikan Hero (Halaman 1) --- */
@@ -628,31 +627,50 @@ nav ul li a.active::after {
         padding: 0 5%;
         min-height: 100vh; 
     }
-    .hero-text {
-        text-align: center; /* Menengahkan deskripsi & social icons */
+    
+    .hero-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center; /* Menengahkan semua item */
     }
+
+    /* FIX 1: Pindah Foto ke Atas */
+    .hero-image {
+        order: 1; /* Tampilkan gambar (urutan 1) */
+        margin-top: 100px; /* Beri jarak dari header */
+    }
+    .hero-text {
+        order: 2; /* Tampilkan teks (urutan 2) */
+        text-align: center; /* FIX 2: Tengahkan semua teks */
+    }
+    
+    /* FIX 2: Pastikan deskripsi juga ke tengah */
+    .hero-text .deskripsi {
+        text-align: center;
+    }
+
     .hero-text h1 {
-        font-size: 32px; /* Kecilkan font "I'm a..." */
+        font-size: 32px;
     }
     .hero-button {
-        display: flex; /* Buat tombol sejajar */
+        display: flex;
         justify-content: center;
         gap: 15px; 
     }
 
-    /* --- 3. FIX: Social Icons --- */
+    /* --- 3. Perbaikan Social Icons --- */
     .social-icons {
         margin-top: 30px;
-        display: flex; /* Gunakan flexbox */
-        justify-content: center; /* Paksa ke tengah */
-        flex-wrap: wrap; /* Izinkan wrap jika perlu */
-        gap: 15px; /* Ganti margin dengan gap */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
     }
     .social-icons a {
-        font-size: 20px;  /* Kecilkan icon */
-        height: 40px;     /* Kecilkan kotak */
-        width: 40px;      /* Kecilkan kotak */
-        margin-right: 0; /* Hapus margin, kita pakai 'gap' */
+        font-size: 20px;
+        height: 40px;
+        width: 40px;
+        margin-right: 0;
     }
 
     /* --- 4. Padding & Font Umum --- */
@@ -663,24 +681,22 @@ nav ul li a.active::after {
         font-size: 36px;
     }
 
-    /* --- 5. Layout Kolom (Hero, Tentang, Kontak) --- */
-    .hero-container, .kontak-container {
+    /* --- 5. Layout Kolom (Tentang, Kontak) --- */
+    .kontak-container {
         flex-direction: column;
         gap: 40px;
     }
-    
-    /* --- 6. Perbaikan Tentang Saya (Halaman 2) --- */
     .tentang-container {
         flex-direction: column;
         gap: 40px;
-        align-items: center; /* Geser ke tengah */
+        align-items: center;
     }
     .tentang-text h3 {
-        font-size: 24px; /* Kecilkan font "Hello, I'm..." */
+        font-size: 24px;
         text-align: center; 
     }
 
-    /* --- 7. Perbaikan Gambar --- */
+    /* --- 6. Perbaikan Gambar --- */
     .hero-image img {
         width: 300px;
         height: 300px;
@@ -693,14 +709,14 @@ nav ul li a.active::after {
         height: 400px;
     }
 
-    /* --- 8. Layout Grid (Service, Project, Sertifikat) --- */
+    /* --- 7. Layout Grid (Service, Project, Sertifikat) --- */
     .service-container,
     .project-container,
     .sertifikat-container {
-        grid-template-columns: 1fr; /* 1 kolom */
+        grid-template-columns: 1fr;
     }
 
-    /* --- 9. Perbaikan Tombol --- */
+    /* --- 8. Perbaikan Tombol --- */
     .kontak-form button {
         align-self: center; 
         width: 100%;
