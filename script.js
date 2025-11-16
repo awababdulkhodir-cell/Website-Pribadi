@@ -20,7 +20,6 @@ document.querySelectorAll('.social-icon a').forEach(link =>
 
 // Ambil SEMUA link di navigasi (HANYA SEKALI DI SINI)
 const navLinks = document.querySelectorAll('nav ul li a');
-
 const sections = document.querySelectorAll('section[id]');
 const headerHeight = 85; // FIX 1: Ganti 100 menjadi 85 agar pas
 
