@@ -581,12 +581,17 @@ nav ul li a.active::after {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 5%;
+        padding: 15px 5%; /* FIX 2: Kurangi padding (lebih pendek) */
+    }
+    
+    /* FIX 2: Kecilkan logo */
+    .logo {
+        font-size: 24px;
     }
 
     #menu-icon {
         display: block;
-        font-size: 28px;
+        font-size: 28px; /* Icon tetap besar (OK) */
         color: white;
         cursor: pointer;
         transition: transform 0.3s ease;
@@ -594,32 +599,30 @@ nav ul li a.active::after {
 
     /* Ini adalah menu dropdown-nya */
     nav ul {
-        display: flex; /* Biarkan display flex */
+        display: flex; 
         flex-direction: column;
         position: absolute;
-        top: 84px; /* Ganti ini jika tinggi header Anda beda */
+        /* FIX 2: Sesuaikan (15px padding + 28px icon + 15px padding = 58px) */
+        top: 60px; /* Bulatkan 58px jadi 60px */
         left: 0;
         width: 100%;
         background-color: #080808;
         border-bottom: 2px solid aqua;
-        
-        /* FIX 3 & 4: Animasi Dropdown */
-        padding: 0; /* Hapus padding saat tertutup */
+        padding: 0;
         margin-top: 0;
         text-align: center;
-        max-height: 0; /* Mulai dengan tinggi 0 (tertutup) */
-        overflow: hidden; /* Sembunyikan konten */
-        transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Tambahkan animasi */
+        max-height: 0;
+        overflow: hidden; 
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out;
     }
 
-    /* Saat menu di-klik (JS menambah class 'active') */
     nav ul.active {
-        max-height: 500px; /* Animasikan ke tinggi ini */
-        padding: 10px 0; /* FIX 3: Kurangi padding agar tidak terlalu besar */
+        max-height: 500px;
+        padding: 10px 0;
     }
 
     nav ul li {
-        margin: 8px 0; /* FIX 3: Kurangi margin */
+        margin: 8px 0;
     }
 
     /* --- 2. Perbaikan Hero (Halaman 1) --- */
@@ -627,26 +630,26 @@ nav ul li a.active::after {
         padding: 0 5%;
         min-height: 100vh; 
     }
-    
     .hero-container {
         flex-direction: column;
         gap: 40px;
-        align-items: center; /* Menengahkan semua item */
+        align-items: center;
     }
-
-    /* FIX 1: Pindah Foto ke Atas */
     .hero-image {
-        order: 1; /* Tampilkan gambar (urutan 1) */
-        margin-top: 100px; /* Beri jarak dari header */
+        order: 1; /* Foto di atas */
+        margin-top: 80px; /* Jarak dari header */
     }
     .hero-text {
-        order: 2; /* Tampilkan teks (urutan 2) */
-        text-align: center; /* FIX 2: Tengahkan semua teks */
+        order: 2; /* Teks di bawah */
+        text-align: center;
     }
     
-    /* FIX 2: Pastikan deskripsi juga ke tengah */
+    /* FIX 3: Samakan style deskripsi Halaman 1 */
     .hero-text .deskripsi {
-        text-align: center;
+        text-align: justify; /* Ubah dari center ke justify */
+        /* Bonus: Samakan ukuran font & spasi baris */
+        font-size: 16px;
+        line-height: 1.7;
     }
 
     .hero-text h1 {
